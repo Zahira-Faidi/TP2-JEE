@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.Collection;
 import java.util.Date;
 
 @Entity @Table(name="EMSI_STUDENTS")
@@ -22,4 +23,7 @@ public class Student {
     private Boolean stillActive;
     @Temporal(TemporalType.TIMESTAMP) @CreationTimestamp
     private Date lastConnection;
+    @OneToMany
+    private Collection<Session> sessions;
+
 }
